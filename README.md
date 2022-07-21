@@ -13,6 +13,7 @@ A template repository for Northstar mods
   <img src="https://user-images.githubusercontent.com/4367791/180306391-a217f309-e875-4e74-8270-8155c60dbcdc.png" />
 </details>
 </li>
+<li> Probably update this README and <code>icon.png</code> </li>
 </ol>
 
 
