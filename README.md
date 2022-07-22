@@ -18,7 +18,8 @@ A template repository for Northstar mods
     </details>
   </li>
 
-<li> Probably update this README and <code>icon.png</code> as they will be used by Thunderstore as well </li>
+<li> Update this README and <code>icon.png</code> as they will be used by Thunderstore as well </li>
+<li> Write your mod! (HINT: Find the docs <a href="https://r2northstar.readthedocs.io/en/latest/guides/gettingstarted.html">here</a>) </li>
 </ol>
 
 
