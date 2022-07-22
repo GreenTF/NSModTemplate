@@ -18,13 +18,12 @@ jobs:
       - name: Check that version matches
         run: |
           if [[ "$(grep -Po "\d+\.\d+\.\d+" $(find ./ -name mod.json))" != "${{ env.cleanVersion }}" ]]; then
-            echo "::debug::${{github.env.cleanVersion}}"
+            echo "::debug::${{env.cleanVersion}}"
             echo "::debug::$(cat $(find ./ -name mod.json ))"
             echo "::error::Version in mod.json does not match tag version"
             exit 1
           fi
   publish:
-    if: ${{github.event.action}} == "published" # only run on publish events
     runs-on: ubuntu-latest
     needs: verify
     steps:
@@ -39,7 +38,7 @@ jobs:
           # Name of the package
           name: ${{ env.name }} # This can be modified if the package name differs from the repo name
           # Package version to publish
-          version: ${{ github.env.cleanVersion }} # This is the tag that was created in the release but without the leading 'v'
+          version: ${{ env.cleanVersion }} # This is the tag that was created in the release but without the leading 'v'
           # Description of the mod
           description: Example mod description # <----- UPDATE THIS
           # Thunderstore API token
