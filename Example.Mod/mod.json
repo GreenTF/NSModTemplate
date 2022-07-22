@@ -7,6 +7,9 @@
    "Scripts": [{
       "Path": "example.nut",
       "RunOn": "(CLIENT || SERVER) && MP"
+      "ClientCallback": {
+         "Before":"example_callback"
+      }
    }],
    "Localisation": []
 }
