@@ -23,13 +23,13 @@ jobs:
             echo "::error::Version in mod.json does not match tag version"
             exit 1
           fi
-      - name: Output version
-        run: |
-          echo "::set-output name=cleanVersion::${{env.cleanVersion}}"
   publish:
     runs-on: ubuntu-latest
     needs: verify
     steps:
+      - name: Get clean version # Duplicating code is cool, actually
+        run: |
+          echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) >> $GITHUB_ENV
       - uses: actions/checkout@v3
       - name: Upload Thunderstore Package
         uses: GreenTF/upload-thunderstore-package@v1
@@ -41,7 +41,7 @@ jobs:
           # Name of the package
           name: ${{ env.name }} # This can be modified if the package name differs from the repo name
           # Package version to publish
-          version: ${{ needs.verify.outputs.cleanVersion }} # This is the tag that was created in the release but without the leading 'v'
+          version: ${{ env.cleanVersion }} # This is the tag that was created in the release but without the leading 'v'
           # Description of the mod
           description: Example mod description # <----- UPDATE THIS
           # Thunderstore API token
