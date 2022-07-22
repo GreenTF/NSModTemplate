@@ -1,0 +1,12 @@
+{
+   "Name": "Example.Mod",
+   "Description": "A cool mod that does cool stuff",
+
+   "LoadPriority": 0,
+   "ConVars": [],
+   "Scripts": [{
+      "Path": "example.nut",
+      "RunOn": "(CLIENT || SERVER) && MP"
+   }],
+   "Localisation": []
+}
