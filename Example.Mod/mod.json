@@ -1,7 +1,7 @@
 {
    "Name": "Example.Mod",
    "Description": "A cool mod that does cool stuff",
-   "Version": 1.0.0,
+   "Version": "1.0.0",
    "DownloadLink": "https://northstar.thunderstore.io/package/download/Example/Mod/",
 
    "LoadPriority": 0,
