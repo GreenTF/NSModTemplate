@@ -1,5 +1,5 @@
 # NSModTemplate
-A template repository for Northstar mods
+A template repository for Northstar mods with a ~~mostly~~ pre-configured github action for publishing to Thunderstore
 
 ## Usage
 <ol>
