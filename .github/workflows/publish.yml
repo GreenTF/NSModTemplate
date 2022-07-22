@@ -2,10 +2,9 @@ name: Publish package
 
 on:
   release:
-    types: [created, published] # run when a new release is published
+    types: [published] # run when a new release is published
     
 env:
-  cleanVersion:  ${{github.event.tag_name}}
   name: ${{github.event.repository.name}} # Edit this if the package name differs from the repo name
 
 jobs:
@@ -13,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Get clean version
+        run: |
+          echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) >> GITHUB_ENV
       - name: Check that version matches
         run: |
           if [[ "$(grep -Po "\d+\.\d+\.\d+" $(find ./ -name mod.json))" != "${{ env.cleanVersion }}" ]]; then
