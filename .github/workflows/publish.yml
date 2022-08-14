@@ -27,12 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: verify
     steps:
-      - name: Get clean version # Duplicating code is cool, actually
-        run: |
-          echo cleanVersion=$(echo ${{github.ref_name}} | sed s/v//g) >> $GITHUB_ENV
       - uses: actions/checkout@v3
       - name: Upload Thunderstore Package
-        uses: GreenTF/upload-thunderstore-package@v1
+        uses: GreenTF/upload-thunderstore-package@v2.2
         with:
           community: northstar
           # Name of the team to publish the mod under
@@ -41,10 +38,12 @@ jobs:
           # Name of the package
           name: ${{ env.name }} # This can be modified if the package name differs from the repo name
           # Package version to publish
-          version: ${{ env.cleanVersion }} # This is the tag that was created in the release but without the leading 'v'
+          version: ${{ github.ref_name }} # This is the tag that was created in the release
           # Description of the mod
-          description: Example mod description # <----- UPDATE THIS
+          description: Example mod description # <----------- UPDATE THIS
           # Thunderstore API token
           token: ${{ secrets.TS_KEY }} 
           # Directory to wrap the contents of the repo in
           wrap: mods/${{ github.repository_owner }}.${{ env.name }} # This will wrap your Author.ModName folder in a mods/ folder before publishing
+          #deps: "northstar-Northstar@1.9.3" # <------------- Uncomment this line to add dependencies to your mod, each sparated by a space
+          categories: "mods" # <----------------------------- Add more categories as needed, separated by spaces
