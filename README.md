@@ -13,7 +13,7 @@ A template repository for Northstar mods with a ~~mostly~~ pre-configured github
   <img src="https://user-images.githubusercontent.com/4367791/180306391-a217f309-e875-4e74-8270-8155c60dbcdc.png" />
 </details>
 </li>
-  <li> <details><summary>Edit <code>.github/workflows/publish.yml</code> line 26 to add a description for your mod </summary>
+  <li> <details><summary>Edit <code>.github/workflows/publish.yml</code> ~line 43 to add a description for your mod </summary>
     <img src="https://user-images.githubusercontent.com/4367791/180337843-5213db45-850b-4759-98c5-9ad47cbab7ba.png" />
     </details>
   </li>
