@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Upload Thunderstore Package
-        uses: GreenTF/upload-thunderstore-package@v3
+        uses: GreenTF/upload-thunderstore-package@v3.1
         with:
           community: northstar
           # Name of the team to publish the mod under
